@@ -1,0 +1,30 @@
+.header {
+    background-color: #1ae9a4;
+    height: 4vw;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.header_nav_bar {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_nav_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.header_logo {
+    width: 3vw;
+    height: 3vw;
+    min-height: 40px;
+    min-width: 40px;
+    background: url('../assets/clown9.jpg');
+    background-size: cover;
+}

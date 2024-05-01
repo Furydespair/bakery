@@ -20,8 +20,8 @@ class WorkerController {
             return next(ApiError.badRequest('Пользователь с таким email уже существует'))
         }
         const hashPassword = await bcrypt.hash(password, 5)
-        const worker = await Worker.create({email, role, password: hashPassword})
-        const token = generateJwt(worker.id, worker.email, worker.role)
+        const employer = await Worker.create({email, role, password: hashPassword})
+        const token = generateJwt(employer.id, employer.email, employer.role)
         return res.json({token})
     }
 
@@ -42,7 +42,6 @@ class WorkerController {
     async auth (req, res, next){
         const token = generateJwt(req.worker.id, req.worker.email, req.worker.role)
         return res.json({token})
-
     }
 
     async deleteWorker (req, res){
@@ -54,7 +53,8 @@ class WorkerController {
     }
 
     async logout(req, res) {
-        const deleteToken = await Worker.update ({token: null}, {where:{id: req.worker.id}})
+        const {id} = req.body
+        const deleteToken = await Worker.update ({token: null}, {where:{id: id}})
         return res.json('succes')
     }
 }

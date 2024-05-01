@@ -1,0 +1,18 @@
+.footer {
+    width: 100vw;
+    height: 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1ae9a4;
+    font-size: calc(18px + 4 * (100vw / 1920));
+}
+
+.footer_link_box {
+    width: 20%;
+    font-weight: 300;
+    font-size: calc(18px + 2 * (100vw / 1920));
+    display: flex;
+    justify-content: space-around;    
+}
