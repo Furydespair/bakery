@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { adminRouts, publicRouts } from '../Routs';
-import Home from '../pages/Home';
+import Home from '../pages/home/Home';
 import { Context } from '..';
 
 const AppRouter = () => {

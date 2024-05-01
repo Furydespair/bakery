@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/admintab.css'
 import AddProductsForm from './AddProductsForm';
 import AddRequestForm from './AddRequestForm';
 import ChangeRequestForm from './ChangeRequestForm';
 import TableWorker from './TableWorker';
+import { Context } from '../..';
 const AdminTab = ({currentTab}) => {
+    const {worker} = useContext(Context)
     const checkCurrentTab = () => {
         switch(currentTab) {
             case 'produts':
@@ -16,7 +18,7 @@ const AdminTab = ({currentTab}) => {
             case 'changeRequest':
                 return <ChangeRequestForm/>
                 break;
-            case 'worker':
+            case 'worker': 
                 return <TableWorker/>
                 break;
             default:
