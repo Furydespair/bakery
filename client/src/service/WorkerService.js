@@ -19,6 +19,12 @@ const WorkerService = {
         })
     },
 
+    async getAllWorkers(){
+        return new Promise((resolve, reject) => {
+            resolve($authHost.get("api/worker/getAllWorkers"))
+        })
+    },
+
     async deleteWorker(id){
         return new Promise((resolve, reject) => {
             resolve($authHost.delete("api/worker/uvolitWorker", {id}))

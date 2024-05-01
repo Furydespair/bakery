@@ -57,5 +57,11 @@ class WorkerController {
         const deleteToken = await Worker.update ({token: null}, {where:{id: id}})
         return res.json('succes')
     }
+
+    async getAllWorkers(req, res, next){
+        const workers = await Worker.findAll()
+        return res.json(workers) 
+    }
+
 }
 module.exports = new WorkerController()

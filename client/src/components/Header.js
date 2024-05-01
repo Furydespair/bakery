@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { ADMINROUTER, HOMEROUTER, LOGINROUTER, REGROUTER } from '../utils/consts';
 import Button from 'react-bootstrap/Button';
 import { Context } from '..';
-import './header.css'
+import './styles/header.css'
 const Header = () => {
     const {worker} = useContext(Context)
     const navigate = useNavigate()
@@ -14,7 +14,7 @@ const Header = () => {
         <div className='w-100 header'>
             <div className='w-75 me-auto ms-auto header_nav_bar'>
                 <div className={`header_nav_section ${worker.worker.role === 'Owner' ? 'w-50' : 'w-25'}`}>
-                    <div className='header_logo'>
+                    <div className='header_logo' onClick={()=> navigate(HOMEROUTER)}>
 
                     </div>
                     <NavLink className='text-decoration-none text-black fs-3' to={HOMEROUTER}>Главная</NavLink>

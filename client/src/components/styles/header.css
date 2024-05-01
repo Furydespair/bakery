@@ -25,6 +25,7 @@
     height: 3vw;
     min-height: 40px;
     min-width: 40px;
-    background: url('../assets/clown9.jpg');
+    background: url('../../assets/clown9.jpg');
     background-size: cover;
+    cursor: pointer;
 }

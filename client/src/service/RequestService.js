@@ -7,9 +7,9 @@ const RequestService = {
         })
     },
 
-    async updStatus(id, status){
+    async updStatus(productName, status){
         return new Promise((resolve, reject) => {
-            resolve($authHost.put("api/request/updStatus", {id, status}))
+            resolve($authHost.put("api/request/updStatus", {productName, status}))
         })
     },
 

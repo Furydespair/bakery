@@ -1,0 +1,19 @@
+.admin_menu {
+    justify-content: space-between;
+}
+
+.admin_menu_item {
+    border: 1px solid black;
+    border-radius: 15px;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.admin_menu_item.last {
+    border-color: #888804;
+    color: #888804;
+}
+

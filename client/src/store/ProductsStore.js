@@ -30,7 +30,7 @@ export default class ProductsStore {
 
     async getAllProduts() {
         try {
-            const {data} = await ProductsService.getAllProduts()
+            const {data} = await ProductsService.getAllProducts()
             this.setProductsList(data)
             return data
         } catch (e) {

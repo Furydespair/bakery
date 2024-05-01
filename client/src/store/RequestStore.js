@@ -28,9 +28,9 @@ export default class RequestStore {
 
     }
 
-    async updStatus(id, status) {
+    async updStatus(productName, status) {
         try {
-            const {data} = await RequestService.updStatus(id, status)
+            const {data} = await RequestService.updStatus(productName, status)
             this.setRequestDetails(data)
             return data
         } catch(e) {

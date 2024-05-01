@@ -6,6 +6,7 @@ export default class WorkerStore {
     constructor() {
         this._isAuth = false
         this._worker = {}
+        this._workerList = []
         makeAutoObservable(this)
     }
 
@@ -14,6 +15,9 @@ export default class WorkerStore {
     }
     setWorker(worker) {
         this._worker = worker
+    }
+    setWorkerList(workerList) {
+        this._workerList = workerList
     }
 
     async registration(email, password, role){
@@ -68,6 +72,17 @@ export default class WorkerStore {
         }
     }
 
+    async getAllWorkers() {
+        try {
+            const {data} = await WorkerService.getAllWorkers()
+            this.setWorkerList(data)
+            return data
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+
+    }
+    
     async deleteWorker(id) {
         try {
             const {data} = await WorkerService.deleteWorker(id)

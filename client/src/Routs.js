@@ -1,5 +1,5 @@
-import Admin from "./pages/Admin";
-import Auth from "./pages/Auth";
+import Admin from "./pages/admin/Admin";
+import Auth from "./pages/auth/Auth";
 import Home from "./pages/Home";
 import { ADMINROUTER, HOMEROUTER, LOGINROUTER, REGROUTER } from "./utils/consts";
 

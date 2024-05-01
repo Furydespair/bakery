@@ -10,5 +10,6 @@ router.post('/reg', checkRoleMiddleware('Owner'), workerController.registration)
 router.get('/auth', checkAuthMiddleware, workerController.auth)
 router.delete('/uvolitWorker', workerController.deleteWorker)
 router.post('/logout', workerController.logout)
+router.get('/getAllWorkers', checkRoleMiddleware('Owner'), workerController.getAllWorkers)
 
 module.exports = router

@@ -2,7 +2,7 @@ const { Request } = require("../models/models")
 
 class RequestController {
     async createRequest(req, res){
-        const {productName, quantity, status} = reg.body
+        const {productName, quantity, status} = req.body
         const request = await Request.create({
             productName, quantity, status
         })
@@ -10,8 +10,8 @@ class RequestController {
     }
 
     async updStatus (req, res){
-        const {id, status} = req.body
-        const updated = await Request.update({status: status},{where: {id: id}})
+        const {productName, status} = req.body
+        const updated = await Request.update({status: status},{where: {productName: productName}})
         return res.json(updated)
 
     }

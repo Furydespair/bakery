@@ -12,7 +12,7 @@ root.render(
   <Context.Provider value={{
     worker: new WorkerStore(),
     request: new RequestStore(),
-    product: new ProductsStore()
+    products: new ProductsStore()
   }}>
     <App />
   </Context.Provider>
