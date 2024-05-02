@@ -39,6 +39,7 @@ export default class ProductsStore {
 
     }
 
+
     async changeProductCounts(name, quantity) {
         try {
             const {data} = await ProductsService.changeProductCounts(name, quantity)

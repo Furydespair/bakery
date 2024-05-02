@@ -32,6 +32,7 @@ export default class RequestStore {
         try {
             const {data} = await RequestService.updStatus(productName, status)
             this.setRequestDetails(data)
+            console.log(data)
             return data
         } catch(e) {
             console.log(e.response?.data?.message)
@@ -41,7 +42,7 @@ export default class RequestStore {
     async getAllRequest() {
         try {
             const {data} = await RequestService.getAllRequest()
-            this.setCursList(data)
+            this.setRequestList(data)
             return data
         } catch (e) {
             console.log(e.response?.data?.message)
@@ -52,7 +53,7 @@ export default class RequestStore {
     async getRequestById(id) {
         try {
             const {data} = await RequestService.getRequestById(id)
-            this.setCursDetails(data)
+            this.setRequestDetails(data)
             return data
         } catch (e) {
             console.log(e.response?.data?.message)

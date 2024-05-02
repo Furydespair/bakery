@@ -7,9 +7,15 @@ const AddRequestForm = () => {
     const {request, products} = useContext(Context)
     const [name, setName] = useState('')
     const [quantity, setQuantity] = useState('')
+    const [currentQuantity, setCurrentQuantity] = useState('')
     const [status, setStatus] = useState('')
+
     async function createRequest(){
-        await request.createRequest(name, quantity, status)
+      await request.createRequest(name, quantity, status)
+      // setTimeout(()=>{
+        // products.getAllProduts().then(res => setCurrentQuantity(prevState => prevState + products._productsList.find(product => product.nameProduct === name)))
+        // products.changeProductCounts(name, currentQuantity + quantity)
+      // }, 30000)
     }
     return (
         <Form>

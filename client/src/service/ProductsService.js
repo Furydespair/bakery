@@ -13,6 +13,7 @@ const ProductsService = {
         })
     },
 
+
     async changeProductCount(name, quantity){
         return new Promise((resolve, reject) => {
             resolve($authHost.put("api/products/changeProductCount", {name, quantity}))

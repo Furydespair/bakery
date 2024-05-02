@@ -10,9 +10,10 @@ class RequestController {
     }
 
     async updStatus (req, res){
-        const {productName, status} = req.body
-        const updated = await Request.update({status: status},{where: {productName: productName}})
-        return res.json(updated)
+        const {id, status} = req.body
+        const updated = await Request.update({status: status},{where: {id: id}})
+        const request = await Request.findOne({where: {id: id}})
+        return res.json(request)
 
     }
 

@@ -14,7 +14,7 @@ const ProductList = () => {
         console.log(productsList)
     }, [products._productsList.length])
     return (
-        <div className='w-100 mb-5 d-flex justify-content-around'>
+        <div className='w-100 mb-5'>
             {productsList.length > 0 && productsList.map(product => 
                     <ProductCard product={product}/>)}
         </div>

@@ -1,30 +1,34 @@
-import React, { useContext, useState } from 'react';
-import Form from 'react-bootstrap/Form';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../..';
-import Button from 'react-bootstrap/esm/Button';
+import ChangeRequestFormItem from './ChangeRequestFormItem';
+import Table from 'react-bootstrap/Table';
+import {  observer } from 'mobx-react-lite';
 
 const ChangeRequestForm = () => {
-    const {request} = useContext(Context)
-    const [name, setName] = useState('')
-    const [status, setStatus] = useState('')
-    async function createRequest(){
-        await request.updStatus(name, status)
-    }
-    return (
-        <Form>
-        <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Label>Название продукта</Form.Label>
-          <Form.Control type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Название продукта" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formGroupPassword">
-          <Form.Label>Статус</Form.Label>
-          <Form.Control type="text" value={status} onChange={e => setStatus(e.target.value)} placeholder="Статус" />
-        </Form.Group>
-        <Button type='button' onClick={createRequest}>
-            Создать
-        </Button>
-      </Form>
-    );
+  const {request} = useContext(Context)
+  const [requestList, setRequestList] = useState([])
+  const getRequests = async () => {
+      await request.getAllRequest().then(res => setRequestList(request._requestList))
+  }
+  useEffect(() => {
+      getRequests()
+  }, [requestList.length])
+  return (
+  <Table striped bordered hover size="sm" className='align-self-start'> 
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Название продукта</th>
+        <th>Количество</th>
+        <th>Статус</th>
+      </tr>
+    </thead>
+    <tbody>
+      {requestList.length > 0 && requestList.map(request => 
+          <ChangeRequestFormItem requestItem={request}/>)}
+    </tbody>
+  </Table>
+  );
 };
 
-export default ChangeRequestForm;
+export default observer(ChangeRequestForm);

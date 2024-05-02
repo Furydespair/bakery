@@ -5,3 +5,7 @@
 .home_title {
     overflow-y: hidden;
 }
+
+.owl-stage{
+    display: flex;
+}

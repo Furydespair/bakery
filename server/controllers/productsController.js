@@ -26,6 +26,7 @@ class ProductController {
 
     }
 
+
     async delProduct (req, res){
         const {name} = req.body
         const deleted = await Products.destroy({
