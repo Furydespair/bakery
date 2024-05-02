@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { Context } from '../..';
 import ChangeRequestFormItem from './ChangeRequestFormItem';
 import Table from 'react-bootstrap/Table';
@@ -10,6 +10,10 @@ const ChangeRequestForm = () => {
   const getRequests = async () => {
       await request.getAllRequest().then(res => setRequestList(request._requestList))
   }
+  const compareNum = (a, b) => a.id - b.id
+  const dynamicRequestList = useMemo(() => {
+    return requestList.slice().sort(compareNum)
+  })
   useEffect(() => {
       getRequests()
   }, [requestList.length])
@@ -24,7 +28,7 @@ const ChangeRequestForm = () => {
       </tr>
     </thead>
     <tbody>
-      {requestList.length > 0 && requestList.map(request => 
+      {requestList.length > 0 && dynamicRequestList.map(request => 
           <ChangeRequestFormItem requestItem={request}/>)}
     </tbody>
   </Table>
